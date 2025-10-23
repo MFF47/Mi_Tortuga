@@ -1,0 +1,217 @@
+.admin-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 45%;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #0a2a5f;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+body {
+  background: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.admin-dashboard {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.bienvenida h2 {
+  color: #0a2a5f;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.bienvenida p {
+  font-size: 16px;
+  color: #555;
+}
+
+.tarjetas {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 30%;
+  min-width: 280px;
+  transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  color: #666;
+  font-size: 14px;
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: #0056b3;
+}
+.nav-admin {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.nav-btn {
+  background: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #0056b3;
+}
+.footer-admin {
+  background: #0a2a5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 4px solid #007bff;
+}
+
+.footer-admin a {
+  color: #aad4ff;
+  text-decoration: none;
+}
+
+.footer-admin a:hover {
+  text-decoration: underline;
+}
+.titulo-admin {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #0a2a5f;
+  margin-bottom: 10px;
+}
+
+.subtitulo-admin {  
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+.titulo-reseñas {
+  text-align: center;
+  font-size: 26px;
+  color: #0a2a5f;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.tabla-reseñas {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-reseñas th {
+  background: #0a2a5f;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.tabla-reseñas td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.tabla-reseñas tr:hover {
+  background: #f9f9f9;
+}
+
+.tabla-reseñas textarea {
+  width: 100%;
+  height: 60px;
+  resize: vertical;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.tabla-reseñas button {
+  background: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.tabla-reseñas button:hover {
+  background: #0056b3;
+}
+
