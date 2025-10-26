@@ -7,10 +7,9 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'admin') {
   exit();
 }
 
-// Obtener todos los productos
 $productos = $conn->query("SELECT * FROM productos ORDER BY id ASC");
 
-// Detectar productos con stock bajo
+
 $stock_bajo = $conn->query("SELECT * FROM productos WHERE stock <= 3 ORDER BY stock ASC");
 ?>
 

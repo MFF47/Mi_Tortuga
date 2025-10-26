@@ -36,7 +36,6 @@ $pedidos = $conn->query("SELECT p.*, m.nombre AS envio
     ul.productos li { margin-bottom: 4px; list-style-type: disc; }
     .productos-cell { text-align: left; padding-left: 12px; background-color: #fafafa; }
 
-    /* Colores por estado */
     .estado-pendiente { background-color: #ffeeba; }
     .estado-preparando { background-color: #cce5ff; }
     .estado-enviado { background-color: #d4edda; }
@@ -57,7 +56,7 @@ $pedidos = $conn->query("SELECT p.*, m.nombre AS envio
         <th>Estado</th>
       </tr>
       <?php while ($p = $pedidos->fetch_assoc()): 
-        // Determinar clase CSS según estado
+
         $estado = strtolower($p['estado_envio']);
         $clase_estado = match ($estado) {
           'pendiente'   => 'estado-pendiente',
@@ -76,7 +75,7 @@ $pedidos = $conn->query("SELECT p.*, m.nombre AS envio
           <td class="<?= $clase_estado ?>"><?= ucfirst($p['estado_envio']) ?></td>
         </tr>
 
-        <!-- Productos comprados -->
+
         <tr>
           <td colspan="5" class="productos-cell">
             <strong>🛒 Productos comprados:</strong>

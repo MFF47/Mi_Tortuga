@@ -7,7 +7,7 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'admin') {
   exit();
 }
 
-// Eliminar pregunta
+
 if (isset($_GET['eliminar'])) {
   $id = intval($_GET['eliminar']);
   $conn->query("DELETE FROM faq WHERE id = $id");
@@ -15,14 +15,14 @@ if (isset($_GET['eliminar'])) {
   exit();
 }
 
-// Guardar respuesta
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['respuesta'])) {
   $id = intval($_POST['id']);
   $respuesta = $conn->real_escape_string($_POST['respuesta']);
   $conn->query("UPDATE faq SET respuesta = '$respuesta' WHERE id = $id");
 }
 
-// Obtener todas las preguntas
+
 $faqs = $conn->query("SELECT * FROM faq ORDER BY fecha DESC");
 ?>
 

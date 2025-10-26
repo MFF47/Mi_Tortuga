@@ -51,7 +51,6 @@ $horas = $conn->query("
   ORDER BY hora
 ");
 
-// Clientes frecuentes
 $clientes = $conn->query("
   SELECT usuario, COUNT(*) AS pedidos
   FROM pedidos
@@ -59,7 +58,7 @@ $clientes = $conn->query("
   ORDER BY pedidos DESC
 ");
 
-// Valor promedio por pedido
+
 $promedio = $conn->query("SELECT AVG(total) AS promedio FROM pedidos")->fetch_assoc()['promedio'];
 ?>
 

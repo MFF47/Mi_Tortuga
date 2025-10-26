@@ -66,7 +66,7 @@ $subtotal = 0;
       </form>
 
       <?php
-        // IVA incluido en el precio
+
         $precio_sin_iva = $subtotal / 1.12;
         $iva = $subtotal - $precio_sin_iva;
         $envio = 35.00;

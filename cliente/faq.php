@@ -15,13 +15,13 @@ $conn->query("INSERT INTO visitas (usuario, pagina) VALUES ('$usuario', '$pagina
 
 $usuario = $_SESSION['username'] ?? 'Anónimo';
 
-// Insertar nueva pregunta
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pregunta'])) {
   $pregunta = $conn->real_escape_string($_POST['pregunta']);
   $conn->query("INSERT INTO faq (usuario, pregunta) VALUES ('$usuario', '$pregunta')");
 }
 
-// Obtener preguntas con o sin respuesta
+
 $faqs = $conn->query("SELECT * FROM faq ORDER BY fecha DESC");
 ?>
 

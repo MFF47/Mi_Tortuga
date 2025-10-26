@@ -108,7 +108,7 @@
     <img src="img/logo.png" alt="Logo TecnoStore Guate" class="logo">
 
     <div id="alerta" class="alert" style="display:none;">
-      ✅ Usuario creado correctamente. Ahora puedes iniciar sesión.
+      Usuario creado correctamente. Ahora puedes iniciar sesión.
     </div>
 
     <h2 id="form-title">Iniciar Sesión</h2>
@@ -154,7 +154,6 @@
       isLogin = !isLogin;
     }
 
-    // Mostrar alerta si el registro fue exitoso
     const params = new URLSearchParams(window.location.search);
     if (params.get('registro') === 'exitoso') {
       document.getElementById('alerta').style.display = 'block';

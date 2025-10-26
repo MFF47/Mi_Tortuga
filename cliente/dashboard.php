@@ -21,7 +21,7 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'usuario') {
   <?php include 'header.php'; ?>
 
   <main class="contenido">
-    <h2>Bienvenido a TecnoStore Guate, <?php echo $_SESSION['username']; ?> 👋</h2>
+    <h2>Bienvenido a TecnoStore Guate, <?php echo $_SESSION['username']; ?></h2>
     <p>Explora nuestros productos tecnológicos más recientes:</p>
 
     <?php include 'productos.php'; ?>

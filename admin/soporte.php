@@ -9,7 +9,6 @@ if (!isset($_SESSION['username'])) {
 
 $usuario = $_SESSION['username'];
 
-// Obtener reseñas generales del usuario
 $mis_reseñas = $conn->query("SELECT * FROM reseñas 
                              WHERE producto_id = 0 AND usuario = '$usuario' 
                              ORDER BY fecha DESC");

@@ -2,7 +2,7 @@
 session_start();
 include '../db.php';
 
-// Validar sesión y parámetros
+
 if (!isset($_SESSION['username'])) {
   header("Location: ../index.html");
   exit();
@@ -12,18 +12,17 @@ $usuario = $_SESSION['username'];
 $producto_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($producto_id === 0) {
-  echo "<p>Producto no válido.</p>";
+  header("Location: soporte.php"); // o cualquier página general
   exit();
 }
 
-// Obtener datos del producto
 $producto = $conn->query("SELECT * FROM productos WHERE id = $producto_id")->fetch_assoc();
 if (!$producto) {
-  echo "<p>Producto no encontrado.</p>";
+  header("Location: soporte.php"); // o página de error personalizada
   exit();
 }
 
-// Verificar si el usuario compró este producto
+
 $comprado = false;
 $check = $conn->query("SELECT * FROM detalle_pedido dp 
                       JOIN pedidos p ON dp.pedido_id = p.id 
@@ -48,7 +47,7 @@ if ($check->num_rows > 0) {
     <p><strong>Precio:</strong> Q<?php echo number_format($producto['precio'], 2); ?></p>
     <img src="../img/<?php echo $producto['imagen']; ?>" alt="Imagen del producto" style="max-width:300px;">
 
-    <!-- Mostrar reseñas aprobadas -->
+
     <section class="reseñas">
       <h3>🗣 Opiniones de clientes</h3>
       <?php
@@ -68,7 +67,7 @@ if ($check->num_rows > 0) {
       ?>
     </section>
 
-    <!-- Formulario para dejar reseña -->
+
     <?php if ($comprado): ?>
       <section class="formulario-reseña">
         <h3>📝 Deja tu reseña</h3>

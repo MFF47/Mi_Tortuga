@@ -7,7 +7,6 @@ if (!isset($_SESSION['username']) || $_SESSION['rol'] !== 'admin') {
   exit();
 }
 
-// Obtener todos los pedidos con datos relevantes
 $pedidos = $conn->query("
   SELECT p.*, m.nombre AS metodo_envio 
   FROM pedidos p

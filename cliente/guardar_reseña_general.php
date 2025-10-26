@@ -8,16 +8,17 @@ if (!isset($_SESSION['username'])) {
 }
 
 $usuario = $_SESSION['username'];
-$valoracion = isset($_POST['valoracion']) ? intval($_POST['valoracion']) : 5;
-$comentario = isset($_POST['comentario']) ? $conn->real_escape_string($_POST['comentario']) : '';
+$producto_id = intval($_POST['producto_id']);
+$valoracion = intval($_POST['valoracion']);
+$comentario = $conn->real_escape_string($_POST['comentario']);
 
 if (!empty($comentario)) {
-  $sql = "INSERT INTO reseñas (usuario, producto_id, comentario, valoracion, aprobado) 
-          VALUES (?, 0, ?, ?, NULL)";
+  $sql = "INSERT INTO reseñas (usuario, producto_id, comentario, valoracion, fecha, respuesta) 
+          VALUES (?, ?, ?, ?, NOW(), NULL)";
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sii", $usuario, $comentario, $valoracion);
+  $stmt->bind_param("sisi", $usuario, $producto_id, $comentario, $valoracion);
   $stmt->execute();
 }
 
-header("Location: soporte.php");
+header("Location: producto.php?id=$producto_id");
 exit();

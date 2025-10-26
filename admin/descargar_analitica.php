@@ -20,7 +20,6 @@ $spreadsheet->getProperties()
   ->setTitle("Reporte de Analítica")
   ->setDescription("Reporte generado automáticamente con PhpSpreadsheet");
 
-// 🔹 Función para aplicar estilo profesional
 function aplicarEstiloEncabezado($sheet, $rango) {
   $sheet->getStyle($rango)->applyFromArray([
     'font' => ['bold' => true],
@@ -30,7 +29,7 @@ function aplicarEstiloEncabezado($sheet, $rango) {
   ]);
 }
 
-// 🔹 Ventas por día
+
 $ventas = $conn->query("SELECT DATE(fecha) AS dia, SUM(total) AS ingresos FROM pedidos GROUP BY dia ORDER BY dia DESC");
 $hojaVentas = $spreadsheet->createSheet();
 $hojaVentas->setTitle('Ventas por Día');
@@ -46,7 +45,7 @@ while ($v = $ventas->fetch_assoc()) {
 $hojaVentas->getColumnDimension('A')->setAutoSize(true);
 $hojaVentas->getColumnDimension('B')->setAutoSize(true);
 
-// 🔹 Productos más vendidos
+
 $productos = $conn->query("SELECT p.nombre, SUM(dp.cantidad) AS vendidos FROM detalle_pedido dp JOIN productos p ON dp.producto_id = p.id GROUP BY p.id ORDER BY vendidos DESC");
 $hojaProductos = $spreadsheet->createSheet();
 $hojaProductos->setTitle('Productos Vendidos');
@@ -62,7 +61,7 @@ while ($p = $productos->fetch_assoc()) {
 $hojaProductos->getColumnDimension('A')->setAutoSize(true);
 $hojaProductos->getColumnDimension('B')->setAutoSize(true);
 
-// 🔹 Ingresos por método de pago
+
 $pagos = $conn->query("SELECT IFNULL(metodo_pago, 'Sin especificar') AS metodo, SUM(total) AS ingresos FROM pedidos GROUP BY metodo");
 $hojaPagos = $spreadsheet->createSheet();
 $hojaPagos->setTitle('Métodos de Pago');
@@ -78,7 +77,7 @@ while ($p = $pagos->fetch_assoc()) {
 $hojaPagos->getColumnDimension('A')->setAutoSize(true);
 $hojaPagos->getColumnDimension('B')->setAutoSize(true);
 
-// 🔹 Visitas por página
+
 $visitas = $conn->query("SELECT pagina, COUNT(*) AS total FROM visitas GROUP BY pagina");
 $hojaVisitas = $spreadsheet->createSheet();
 $hojaVisitas->setTitle('Visitas por Página');
@@ -94,7 +93,7 @@ while ($v = $visitas->fetch_assoc()) {
 $hojaVisitas->getColumnDimension('A')->setAutoSize(true);
 $hojaVisitas->getColumnDimension('B')->setAutoSize(true);
 
-// 🔹 Clientes frecuentes
+
 $clientes = $conn->query("SELECT usuario, COUNT(*) AS pedidos FROM pedidos GROUP BY usuario ORDER BY pedidos DESC");
 $hojaClientes = $spreadsheet->createSheet();
 $hojaClientes->setTitle('Clientes Frecuentes');
@@ -110,7 +109,7 @@ while ($c = $clientes->fetch_assoc()) {
 $hojaClientes->getColumnDimension('A')->setAutoSize(true);
 $hojaClientes->getColumnDimension('B')->setAutoSize(true);
 
-// 🔹 Métricas generales
+
 $hojaResumen = $spreadsheet->getSheet(0);
 $hojaResumen->setTitle('Resumen');
 $hojaResumen->setCellValue('A1', 'Métrica');
@@ -133,7 +132,7 @@ $hojaResumen->setCellValue('B5', 'Q' . number_format($promedio, 2));
 $hojaResumen->getColumnDimension('A')->setAutoSize(true);
 $hojaResumen->getColumnDimension('B')->setAutoSize(true);
 
-// 🔻 Descargar el archivo
+
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="Reporte_Analitica.xlsx"');
 header('Cache-Control: max-age=0');

@@ -9,13 +9,13 @@ $pagina = $nombres_paginas[$archivo] ?? $archivo;
 $usuario = $_SESSION['username'] ?? 'Invitado';
 $conn->query("INSERT INTO visitas (usuario, pagina) VALUES ('$usuario', '$pagina')");
 
-// Filtros
+
 $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : '';
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $precio_min = isset($_GET['precio_min']) ? $_GET['precio_min'] : '';
 $precio_max = isset($_GET['precio_max']) ? $_GET['precio_max'] : '';
 
-// Construcción dinámica de la consulta
+
 $condiciones = ["disponible = 1"];
 if ($buscar !== '') {
   $condiciones[] = "nombre LIKE '%$buscar%'";

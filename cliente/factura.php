@@ -9,7 +9,7 @@ if (!isset($_GET['id'])) {
 
 $pedido_id = intval($_GET['id']);
 
-// Obtener datos del pedido
+
 $sql = "SELECT p.*, m.nombre AS metodo_envio, m.tiempo_estimado 
         FROM pedidos p 
         JOIN metodos_envio m ON p.metodo_envio_id = m.id 
@@ -24,7 +24,6 @@ if (!$pedido) {
   exit();
 }
 
-// Obtener detalle del pedido
 $sql_detalle = "SELECT dp.*, pr.nombre 
                 FROM detalle_pedido dp 
                 JOIN productos pr ON dp.producto_id = pr.id 

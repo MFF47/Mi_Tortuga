@@ -3,13 +3,6 @@ session_start();
 include '../db.php';
 include 'header.php';
 
-if (isset($_SESSION['username'])) {
-  $usuario = $_SESSION['username'];
-} else {
-  $usuario = 'Invitado';
-}
-$pagina = basename($_SERVER['PHP_SELF']);
-$conn->query("INSERT INTO visitas (usuario, pagina) VALUES ('$usuario', '$pagina')");
 
 
 if ($_SESSION['rol'] !== 'admin') {
@@ -41,7 +34,7 @@ if ($_SESSION['rol'] !== 'admin') {
 <main class="admin-dashboard">
   
  <section class="bienvenida">
-  <h2 class="titulo-admin">👋 Bienvenido, <?php echo $_SESSION['username']; ?></h2>
+  <h2 class="titulo-admin">Bienvenido, <?php echo $_SESSION['username']; ?></h2>
   <p class="subtitulo-admin">Gestiona el sistema desde este panel central.</p>
 </section>
 
